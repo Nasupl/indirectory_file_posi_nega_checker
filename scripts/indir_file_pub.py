@@ -21,7 +21,7 @@ def indir_scanner():
 		for file in os.listdir(dir_path):
 			if fnmatch.fnmatch(file, '*'+file_ext):
 				rospy.loginfo(file)
-				pub.publish(file)
+				pub.publish(dir_path + file)
 				print 'This file is positive?'
 				y_n = raw_input()
 				if y_n == 'y':
