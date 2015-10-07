@@ -11,7 +11,7 @@ def indir_scanner():
 	pub = rospy.Publisher('filename',String,queue_size=10)
 	rospy.init_node('indir_file_pub', anonymous=True)
 
-	view = True;
+	view = False;
 
 	r = rospy.Rate(5)
 
@@ -35,7 +35,8 @@ def indir_scanner():
 						if not os.path.exists(dir_path + '/nega'):
 							os.mkdir(dir_path + '/nega')
 						shutil.copyfile(dir_path+'/'+file, dir_path+'/nega'+'/'+file)
-				r.sleep()
+				if view == True :
+					r.sleep()
 
 if __name__ == '__main__':
 	try:
